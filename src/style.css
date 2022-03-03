@@ -1,0 +1,304 @@
+/*Geral =========================*/
+:root {
+  --backgrond: #000;
+  --text-color: #FFF;
+  --button: #8257E5;
+  --border: #29292E;
+  --border-menu-mobile: #A8A8B3;
+  --text-color-menu-mobile: #E1E1E6;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 93.75%;
+}
+
+body{
+  font-family: "Manrope", sans-serif;
+
+  background-color: var(--backgrond);
+}
+/*Header =====================*/
+
+header {
+  position: relative;
+  z-index: 9999;
+}
+
+.content
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 2rem;
+
+  border-bottom: var(--border-menu-mobile) 1px outset;
+}
+
+
+
+#nav-menu.activeClose{
+  content: url(../assets/menu-buguer-close.svg);
+}
+
+
+#nav-menu:hover{
+  cursor: pointer;
+}
+
+/*nav ================*/
+.navbar-open{
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+  
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999;
+}
+
+.navbar-open.open{
+  opacity: 1;
+  visibility: visible;
+}
+
+.navegation{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  background: black;
+
+  
+}
+
+.navegation a {
+  padding: 1rem 2rem;
+  border-bottom: var(--border-menu-mobile) 1px outset;
+  color: var(--text-color-menu-mobile);
+  text-decoration: none;
+  opacity: .6;
+}
+
+.navegation a:hover{
+  opacity: 1;
+  border-left: 3px solid var(--button);
+}
+
+aside{
+  color: var(--text-color);
+  width: 100%;
+
+  text-align: center;
+  padding: 6rem 0;
+}
+
+.mobile-text{
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+  line-height: 3rem;
+  margin-bottom: 2rem;
+}
+
+#get-Coffee{
+  text-decoration: none;
+  color: var(--text-color);
+
+  border: solid var(--button) 1px;
+  border-radius: .25rem;
+  padding: .7rem 2rem;
+
+  margin-top: 5rem;
+  display: inline-block;
+}
+
+.arrow{
+  margin-left: 5px;
+}
+
+/*Animation button ===========================================*/
+#get-Coffee:hover{
+  animation:forwards 1000ms upButton;
+}
+
+/*MAIN ======================================*/
+
+.container{
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 3.4rem;
+  line-height: 4..5rem;
+
+  text-align: center;
+}
+
+.container p span{
+  text-shadow: -1px -1px 0 var(--button), 1px -1px 0 var(--button), -1px 1px 0 var(--button), 1px 1px 0 var(--button);
+  color: rgba(0,0,0,1);
+
+}
+
+
+
+/*background =========================*/
+.background-mobile{ 
+  position: relative;
+  bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+#coffee{
+  position: relative;
+  bottom: -4px;
+  width: 100%;
+  
+  z-index: 99;
+}
+
+.blur-mobile{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+
+.blur-right{
+  position: absolute;
+  visibility: hidden;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+}
+
+
+@media(min-width:900px){
+  /*Header GERAL =========================*/
+  header{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 100%;
+  }
+
+  /*HEADER .content ==================*/
+  .content{
+    justify-content: right;
+    border: none;
+    padding: 0;
+    width: 60%
+  }
+
+  #rocketLogo{
+    content: url(../assets/logo-desktop.svg)
+  }
+
+  #nav-menu{
+    visibility: hidden;
+    width: 0;
+  }
+
+  /*Header navbar ===================*/
+  .navbar-open{
+    position: static;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .navegation{
+    flex-direction: row;
+    background: none;
+    margin-left: 40px;
+    justify-content: space-evenly;
+  }
+
+  .navegation a {
+    border: none;
+    font-size: 1rem;
+    opacity: 1;
+    color: var(--text-color);
+
+    padding: 0;
+  }
+
+  .navegation a:hover{
+    opacity: 0.7;
+    border: none;
+  }
+
+  /*Header Aside ====================*/
+
+  aside{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+  }
+
+  .mobile-text{
+    visibility: hidden;
+    width: 0;
+    opacity: 0;
+    height: 0;
+  }
+
+  #get-Coffee{
+    height: 100%;
+    margin-top: 0;
+    font-size: .79rem;;
+  }
+
+  .arrow{
+    visibility:hidden;
+    opacity: 0;
+    width: 0;
+  }
+
+
+  /*Main ==========================*/
+
+  .container{
+    font-size: 80px;
+
+    margin-top: 5rem;
+  }
+
+  .blur-left{
+    content: url(../assets/blur-1.png)
+  }
+
+  .blur-right{
+    visibility: visible;
+    opacity: 1;
+    width: 100%;
+  }
+
+}
+
+@media(min-width:1000px){
+  #get-Coffee{
+    font-size: 1rem;
+  }
+}
+
+
+@keyframes upButton {
+  from { 
+    transform: translateY(0px);
+  } to{
+    transform: translateY(-5px)
+  }
+}
